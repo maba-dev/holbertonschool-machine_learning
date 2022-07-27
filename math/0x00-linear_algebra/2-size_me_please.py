@@ -2,9 +2,8 @@
 
 
 def matrix_shape(matrix):
-    """ a function that calculates the shape of a matrix: """
-    if type(matrix) is not list:
-        return None
+    """ a function that calculates the shape of a matrix """
+
     shape = []
     while (type(matrix) is list):
         shape.append(len(matrix))
