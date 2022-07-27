@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
+""" a function that calculates the shape of a matrix """
 
 
 def matrix_shape(matrix):
-    """ a function that calculates the shape of a matrix """
+    """ the shape of a matrix """
 
     shape = []
     while (type(matrix) is list):
