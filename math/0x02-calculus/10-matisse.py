@@ -8,6 +8,8 @@ def poly_derivative(poly):
         return None
     if len(poly) == 1:
         return [0]
+    if len(poly) == 0:
+        return None
     result = []
     for i in range(1, len(poly)):
         if type(poly[i]) is not int:
