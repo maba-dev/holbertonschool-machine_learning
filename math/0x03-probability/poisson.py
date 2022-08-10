@@ -9,7 +9,7 @@ class Poisson:
         self.lambtha = float(lambtha)
         if data is None:
             if lambtha <= 0:
-                raise ValueError("lambtha must be a positive")
+                raise ValueError("lambtha must be a positive value")
         else:
             if type(data) is not list:
                 raise TypeError("data must be a list")
