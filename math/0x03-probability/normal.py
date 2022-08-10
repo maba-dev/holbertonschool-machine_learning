@@ -22,3 +22,11 @@ class Normal:
             for i in data:
                 _data.append((i - self.mean) ** 2)
             self.stddev = (N * sum(_data)) ** (1 / 2)
+
+    def z_score(self, x):
+        """ Calculates the z-score of a given x-value"""
+        return (x - self.mean) / self.stddev
+
+    def x_value(self, z):
+        """ Calculates the x-value of a given z-score"""
+        return (z * self.stddev) + self.mean
