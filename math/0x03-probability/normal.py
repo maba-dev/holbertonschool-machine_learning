@@ -2,9 +2,6 @@
 """ a class Normal that represents a normal distribution"""
 
 
-from typing import Type
-
-
 class Normal:
     """a class normal distribution """
     def __init__(self, data=None, mean=0., stddev=1.):
