@@ -2,9 +2,6 @@
 """a class Binomial that represents a binomial distribution """
 
 
-from math import factorial
-
-
 class Binomial:
     """a class Binomial distribution  """
     def __init__(self, data=None, n=1, p=0.5):
