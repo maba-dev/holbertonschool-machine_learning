@@ -33,10 +33,10 @@ class Binomial:
 
     def pmf(self, k):
         """Calculates the value of the PMF for a given number of “successes”"""
-        if k < 0:
-            return 0
         if type(k) is not int:
             k = int(k)
+        if k < 0:
+            return 0
         factorial_1 = 1
         for i in range(1, self.n + 1):
             factorial_1 = factorial_1 * i
