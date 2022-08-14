@@ -2,6 +2,9 @@
 """a class Binomial that represents a binomial distribution """
 
 
+from math import factorial
+
+
 class Binomial:
     """a class Binomial distribution  """
     def __init__(self, data=None, n=1, p=0.5):
@@ -27,3 +30,21 @@ class Binomial:
             self.p = 1 - (variance) / (mean)
             self.n = int(round(mean / self.p))
             self.p = mean / self.n
+
+    def pmf(self, k):
+        """Calculates the value of the PMF for a given number of “successes”"""
+        if k < 0:
+            return 0
+        if type(k) is not int:
+            k = int(k)
+        factorial_1 = 1
+        for i in range(1, self.n + 1):
+            factorial_1 = factorial_1 * i
+        factorial_2 = 1
+        for i in range(1, k + 1):
+            factorial_2 = factorial_2 * i
+        factorial_3 = 1
+        for i in range(1, self.n - k + 1):
+            factorial_3 = factorial_3 * i
+        comb = (factorial_1 / (factorial_2 * factorial_3))
+        return comb * (self.p ** k) * ((1 - self.p) ** (self.n - k))
