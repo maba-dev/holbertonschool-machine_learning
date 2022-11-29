@@ -1,1 +1,0 @@
-**0x02-calculus README.md**
