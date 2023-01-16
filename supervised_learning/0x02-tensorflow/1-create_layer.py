@@ -2,10 +2,6 @@
 """the function create layer """
 
 
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
-
 import tensorflow.compat.v1 as tf
 
 
