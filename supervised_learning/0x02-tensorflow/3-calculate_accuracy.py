@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-
 """the function  that Calculates accuracy of prediction"""
-import tensorflow as tf
+
+
+import tensorflow.compat.v1 as tf
 
 
 def calculate_accuracy(y, y_pred):
