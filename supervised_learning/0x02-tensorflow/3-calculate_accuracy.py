@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """the function  that Calculates accuracy of prediction"""
 
-
 import tensorflow as tf
 
 
