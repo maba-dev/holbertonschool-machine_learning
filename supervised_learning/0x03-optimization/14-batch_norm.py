@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-""" """
+"""creates a batch normalization layer for a neural network in tensorflow """
+
 
 import tensorflow.compat.v1 as tf
-""" """
 
 
 def create_batch_norm_layer(prev, n, activation):
+    """creates a batch normalization layer for a neural network"""
     init = tf.keras.initializers.VarianceScaling(mode='fan_avg')
-    dense = tf.keras.layers.Dense(units=n, activation=None, kernel_initializer=init)
+    dense = tf.keras.layers.Dense(
+        units=n, activation=None, kernel_initializer=init)
     x = dense(prev)
     mean, variance = tf.nn.moments(x, axes=[0])
     beta = tf.Variable(tf.zeros([1, n]), dtype=tf.float32)
