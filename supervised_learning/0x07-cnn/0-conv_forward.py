@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-""" performs forward propagation over a convolutional layer of a neural network:"""
+"""perform forward propagation over a cnvolutional layer of a neural network"""
 
 
 import numpy as np
 
 
 def conv_forward(A_prev, W, b, activation, padding="same", stride=(1, 1)):
-    """performs forward propagation over a convolutional layer of a neural network"""
-    
+    """performs forward propagation over a conv layer of a neural network"""
     if padding == 'same':
         ph = int(((A_prev.shape[1] - 1) * stride[0] +
                   W.shape[0] - A_prev.shape[1]) / 2)
@@ -30,6 +29,6 @@ def conv_forward(A_prev, W, b, activation, padding="same", stride=(1, 1)):
                 A = A_pad[:, x:x + W.shape[0],
                           y:y + W.shape[1], :]
                 kernel = W[:, :, :, k]
-                conv[:, i, j, k] = np.sum(np.multiply(A, kernel),
-                                               axis=(1, 2, 3))
+                conv[:, i, j, k] = np.sum(
+                    np.multiply(A, kernel), axis=(1, 2, 3))
     return activation(conv + b)
