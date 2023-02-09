@@ -35,8 +35,7 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
                     horiz_end = horiz_start + kw
                     a_slice = a_prev[
                         vert_start:vert_end, horiz_start:horiz_end, :]
-                    dA_prev[i, vert_start:vert_end, horiz_start:horiz_end, :]
-                    += W[:, :, :, c] * dZ[i, h, w, c]
+                    dA_prev[i, vert_start:vert_end, horiz_start:horiz_end, :]+= W[:, :, :, c] * dZ[i, h, w, c]
                     dW[:, :, :, c] += a_slice * dZ[i, h, w, c]
                     db[:, :, :, c] += dZ[i, h, w, c]
     if padding == "same":
