@@ -7,7 +7,7 @@ import tensorflow.compat.v1 as tf
 
 def lenet5(x, y):
     """builds a modified version of the LeNet-5 architecture using tensorflow """
-    init = tf.contrib.layers.variance_scaling_initializer()
+    init = tf.keras.initializers.VarianceScaling(scale=2.0, mode=("fan_avg"))
     layer1 = tf.layers.Conv2D(filters=6, kernel_size=(5, 5),
                               padding='same', activation='relu',
                               kernel_initializer=init)(x)
