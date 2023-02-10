@@ -7,7 +7,7 @@ import tensorflow.compat.v1 as tf
 
 def lenet5(x, y):
     """builds a modified version of the LeNet-5 architecture using tensorflow """
-    init = tf.keras.initializers.VarianceScaling(scale=2.0, mode=("fan_avg"))
+    init = tf.keras.initializers.VarianceScaling(scale=2.0)
     layer1 = tf.layers.Conv2D(filters=6, kernel_size=(5, 5),
                               padding='same', activation='relu',
                               kernel_initializer=init)(x)
@@ -25,7 +25,7 @@ def lenet5(x, y):
     loss = tf.losses.softmax_cross_entropy(y, logits)
     grady = tf.train.AdamOptimizer()
     op = grady.minimize(loss)
-    ac = tf.equal(tf.argmax(y, 1), tf.argmax(logits, 1))
-    accuracy = tf.reduce_mean(tf.cast(ac, tf.float32), name="Mean")
+    acc = tf.equal(tf.argmax(y, 1), tf.argmax(logits, 1))
+    accuracy = tf.reduce_mean(tf.cast(acc, tf.float32), name="Mean")
     y_pred = tf.nn.softmax(logits)
     return y_pred, op, loss, accuracy
