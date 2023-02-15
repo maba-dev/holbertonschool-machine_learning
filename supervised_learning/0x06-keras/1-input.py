@@ -5,17 +5,16 @@ import tensorflow.keras as K
 
 def build_model(nx, layers, activations, lambtha, keep_prob):
     """builds a neural network with the Keras library"""
-    x_input = K.layers.Input(shape=(nx,))
-
-    prev_layer = x_input
+    x_input = K.Input(shape=(nx,))
+    layer = K.layers.Dense(
+                layers[0], activation=activations[0],
+                kernel_regularizer=K.regularizers.l2(lambtha))(x_input)
     for i in range(len(layers)):
-        layer_size = layers[i]
-        activation = activations[i]
-        layer = K.layers.Dense(
-            layer_size, activation=activation,
-            kernel_regularizer=K.regularizers.l2(lambtha))(prev_layer)
-        if keep_prob < 1.0:
+        if i > 0:
+            layer = K.layers.Dense(
+                layers[i], activation=activations[i],
+                kernel_regularizer=K.regularizers.l2(lambtha))(layer)
+        if i < len(layers) - 1:
             layer = K.layers.Dropout(1 - keep_prob)(layer)
-        prev_layer = layer
-    model = K.models.Model(inputs=x_input, outputs=prev_layer)
+    model = K.Model(inputs=x_input, outputs=layer)
     return model
