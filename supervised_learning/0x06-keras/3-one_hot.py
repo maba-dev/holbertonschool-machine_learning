@@ -2,12 +2,9 @@
 """converts a label vector into a one-hot matrix:"""
 
 
-import numpy as np
+from tensorflow import keras as K
 
 
 def one_hot(labels, classes=None):
     """converts a label vector into a one-hot matrix:"""
-    if classes is None:
-        classes = np.max(labels) + 1
-    one_hot_matrix = np.eye(classes)[labels.reshape(-1)]
-    return one_hot_matrix
+    return K.utils.to_categorical(labels, num_classes=classes)
