@@ -2,9 +2,9 @@
 """converts a label vector into a one-hot matrix:"""
 
 
-from tensorflow.keras as K
+import tensorflow.keras as K
 
 
 def one_hot(labels, classes=None):
-    """converts a label vector into a one-hot matrix:"""
+    """converts a label vector into a one-hot matrix"""
     return K.utils.to_categorical(labels, num_classes=classes)
