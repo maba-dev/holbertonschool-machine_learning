@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""  trains a model using mini-batch gradient descent"""
+"""trains a model using mini-batch gradient descent"""
 
 
-import numpy as np
 from tensorflow import keras
 
 
