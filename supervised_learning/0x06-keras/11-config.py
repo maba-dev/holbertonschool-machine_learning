@@ -2,7 +2,6 @@
 """Saves and Loads a model's configuration in JSON format """
 
 
-import json
 import tensorflow.keras as K
 
 
