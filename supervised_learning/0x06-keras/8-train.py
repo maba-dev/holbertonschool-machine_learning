@@ -21,8 +21,11 @@ def train_model(network, data, labels, batch_size, epochs,
             schedule=learning_rate_decay, verbose=1
         )
         callbacks.append(learning)
-    if filepath:
+
         callbacks.append(K.callbacks.ModelCheckpoint(filepath,
+                                                     mode='min',
+                                                     verbose=verbose,
+                                                     save_weights_only=False,
                                                      save_best_only=save_best,
                                                      monitor='val_loss'))
     history = network.fit(data, labels,
