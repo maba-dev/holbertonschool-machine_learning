@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ save the best iteration of the model:"""
 
+
 import tensorflow.keras as K
 
 
@@ -23,10 +24,7 @@ def train_model(network, data, labels, batch_size, epochs,
         callbacks.append(learning)
 
         callbacks.append(K.callbacks.ModelCheckpoint(filepath,
-                                                     mode='min',
-                                                     verbose=verbose,
-                                                     save_weights_only=False,
-                                                     save_best_only=save_best,
+                                                     save_best_only=True,
                                                      monitor='val_loss'))
     history = network.fit(data, labels,
                           batch_size=batch_size,
