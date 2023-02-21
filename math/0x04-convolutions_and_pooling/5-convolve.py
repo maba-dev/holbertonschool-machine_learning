@@ -19,7 +19,7 @@ def convolve(images, kernels, padding='same', stride=(1, 1)):
         ph, pw = padding
 
     images_padded = np.pad(
-        images, [(0,0), (ph,ph), (pw,pw), (0,0)], mode='constant')
+        images, [(0, 0), (ph, ph), (pw, pw), (0, 0)], mode='constant')
 
     output_h = int((h + 2 * ph - kh) / sh) + 1
     output_w = int((w + 2 * pw - kw) / sw) + 1
